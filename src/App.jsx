@@ -9,26 +9,20 @@ export const AppContext = createContext();
 function App() {
    const [board, setBoard] = useState(defaultBoard);
    const [gameWon, setGameWon] = useState(false);
-   const [indices, setIndices] = useState([]);
    const [letterPosition, setLetterPosition] = useState({
       column: 0,
       row: 0,
    });
 
-   const getIndicesOfLetters = (guess) => {
-      return guess.split("").map((letter) => word.indexOf(letter));
-   };
-
    const onEnter = () => {
       if (letterPosition.column > 4) {
-         const guess = board[letterPosition.row].join("");
-         console.log("guess: ", guess);
-         setIndices(getIndicesOfLetters(guess));
          setLetterPosition({
             ...letterPosition,
             column: 0,
             row: letterPosition.row + 1,
          });
+
+         setGameWon(word === board[letterPosition.row].join(""));
       }
    };
 
@@ -66,13 +60,12 @@ function App() {
             onEnter,
             onBackspace,
             onKeySelect,
-            indices,
-            setIndices,
          }}
       >
          <h1>Wordle</h1>
          <Board />
          <Keyboard />
+         {gameWon && <h1>You won!</h1>}
       </AppContext.Provider>
    );
 }

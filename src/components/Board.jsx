@@ -1,17 +1,17 @@
 import React, { useState, useContext } from "react";
 import LetterBoxRow from "./LetterBoxRow";
+import LetterBox from "./LetterBox";
 import { AppContext } from "../App";
 
 const Board = () => {
-   const { board, letterPosition } = useContext(AppContext);
+   const { board } = useContext(AppContext);
    return (
       <div style={{ maxWidth: "500px", margin: "auto" }}>
-         <LetterBoxRow row={board[0]} colorRow={letterPosition.row === 1} />
-         <LetterBoxRow row={board[1]} colorRow={letterPosition.row === 2} />
-         <LetterBoxRow row={board[2]} colorRow={letterPosition.row === 3} />
-         <LetterBoxRow row={board[3]} colorRow={letterPosition.row === 4} />
-         <LetterBoxRow row={board[4]} colorRow={letterPosition.row === 5} />
-         <LetterBoxRow row={board[5]} colorRow={letterPosition.row === 6} />
+         <LetterBoxRow rowIndex={0} />
+         <LetterBoxRow rowIndex={1} />
+         <LetterBoxRow rowIndex={2} />
+         <LetterBoxRow rowIndex={3} />
+         <LetterBoxRow rowIndex={4} />
       </div>
    );
 };
