@@ -1,19 +1,16 @@
 import React, { useContext } from "react";
 import { AppContext } from "../App";
 
-const Key = ({ keyLetter }) => {
-   const { onEnter, onBackspace, onKeySelect, gameOver } =
-      useContext(AppContext);
+const Key = ({ keyLetter, color }) => {
+   const { onEnter, onBackspace, onKeySelect } = useContext(AppContext);
 
    const setLetterToBoard = () => {
-      if (!gameOver) {
-         if (keyLetter === "Enter") {
-            onEnter();
-         } else if (keyLetter === "Backspace") {
-            onBackspace();
-         } else {
-            onKeySelect(keyLetter);
-         }
+      if (keyLetter === "Enter") {
+         onEnter();
+      } else if (keyLetter === "Backspace") {
+         onBackspace();
+      } else {
+         onKeySelect(keyLetter);
       }
    };
 
@@ -21,6 +18,9 @@ const Key = ({ keyLetter }) => {
       <button
          className="rounded-md font-bold bg-gray-300 text-gray-600 hover:bg-gray-400 transition-colors px-6 py-2"
          onClick={setLetterToBoard}
+         style={{
+            backgroundColor: color,
+         }}
       >
          {keyLetter}
       </button>
