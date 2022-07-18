@@ -22,7 +22,7 @@ const LetterBox = ({ letterPos, rowIndex }) => {
 
    return (
       <div
-         className="w-14 h-14 border-2 border-gray-200 flex justify-center items-center"
+         className="w-16 h-16 border-2 border-gray-200 bg-gray-50	 flex justify-center items-center rounded"
          style={{
             backgroundColor: color,
          }}

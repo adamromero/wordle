@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useContext } from "react";
 import Key from "./Key";
-import keys from "../keys";
+import { topKeys, middleKeys, bottomKeys } from "../keys";
 import { AppContext } from "../App";
 
 const Keyboard = () => {
@@ -30,14 +30,19 @@ const Keyboard = () => {
    }, [handleKeyPress]);
 
    return (
-      <div className="mt-8 mx-auto" style={{ maxWidth: "770px" }}>
-         <div
-            className="grid gap-2 text-center"
-            style={{
-               gridTemplateColumns: "repeat(10, 1fr)",
-            }}
-         >
-            {keys.map((keyLetter, index) => (
+      <div className="mt-8 mx-auto">
+         <div className="flex justify-center	mb-2	 gap-2 text-center">
+            {topKeys.map((keyLetter, index) => (
+               <Key key={index} keyLetter={keyLetter} />
+            ))}
+         </div>
+         <div className="flex justify-center	mb-2	 gap-2 text-center">
+            {middleKeys.map((keyLetter, index) => (
+               <Key key={index} keyLetter={keyLetter} />
+            ))}
+         </div>
+         <div className="flex justify-center	mb-2	 gap-2 text-center">
+            {bottomKeys.map((keyLetter, index) => (
                <Key key={index} keyLetter={keyLetter} />
             ))}
          </div>
