@@ -6,7 +6,7 @@ import { AppContext } from "../App";
 const Board = () => {
    const { board } = useContext(AppContext);
    return (
-      <div style={{ maxWidth: "500px", margin: "auto" }}>
+      <div className="grid grid-cols-5	 gap-1 board-width m-auto">
          <LetterBoxRow rowIndex={0} />
          <LetterBoxRow rowIndex={1} />
          <LetterBoxRow rowIndex={2} />

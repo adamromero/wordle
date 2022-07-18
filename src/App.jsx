@@ -3,6 +3,7 @@ import Board from "./components/Board";
 import Keyboard from "./components/Keyboard";
 import defaultBoard from "./board";
 import word from "./words";
+import "./index.css";
 
 export const AppContext = createContext();
 
@@ -62,7 +63,7 @@ function App() {
             onKeySelect,
          }}
       >
-         <h1>Wordle</h1>
+         <h1 className="text-3xl font-bold text-center	my-8">Wordle</h1>
          <Board />
          <Keyboard />
          {gameWon && <h1>You won!</h1>}

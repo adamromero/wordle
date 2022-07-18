@@ -30,12 +30,11 @@ const Keyboard = () => {
    }, [handleKeyPress]);
 
    return (
-      <div style={{ maxWidth: "500px", margin: "auto", paddingTop: "20px" }}>
+      <div className="mt-8 mx-auto" style={{ maxWidth: "770px" }}>
          <div
+            className="grid gap-2 text-center"
             style={{
-               display: "grid",
                gridTemplateColumns: "repeat(10, 1fr)",
-               textAlign: "center",
             }}
          >
             {keys.map((keyLetter, index) => (

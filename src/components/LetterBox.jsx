@@ -12,20 +12,18 @@ const LetterBox = ({ letterPos, rowIndex }) => {
    let color = "";
    if (letterPosition.row > rowIndex) {
       if (correct) {
-         color = "green";
+         color = "#54ad5c";
       } else if (includes) {
-         color = "yellow";
+         color = "#c1af5c";
       } else {
-         color = "gray";
+         color = "#777c7f";
       }
    }
 
    return (
       <div
+         className="w-14 h-14 border-2 border-gray-200 flex justify-center items-center"
          style={{
-            width: "50px",
-            height: "50px",
-            border: "1px solid gray",
             backgroundColor: color,
          }}
       >

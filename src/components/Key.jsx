@@ -14,7 +14,14 @@ const Key = ({ keyLetter }) => {
       }
    };
 
-   return <button onClick={setLetterToBoard}>{keyLetter}</button>;
+   return (
+      <button
+         className="rounded-md bg-gray-300 hover:bg-gray-500 transition-colors	 px-6 py-2"
+         onClick={setLetterToBoard}
+      >
+         {keyLetter}
+      </button>
+   );
 };
 
 export default Key;
