@@ -4,7 +4,14 @@ import { topKeys, middleKeys, bottomKeys } from "../keys";
 import { AppContext } from "../App";
 
 const Keyboard = () => {
-   const { onEnter, onBackspace, onKeySelect } = useContext(AppContext);
+   const {
+      board,
+      letterPosition,
+      onEnter,
+      onBackspace,
+      onKeySelect,
+      gameOver,
+   } = useContext(AppContext);
 
    const onlyLetters = (str) => {
       if (str.length > 1) return "";
@@ -22,7 +29,9 @@ const Keyboard = () => {
    });
 
    useEffect(() => {
-      document.addEventListener("keydown", handleKeyPress);
+      if (!gameOver) {
+         document.addEventListener("keydown", handleKeyPress);
+      }
 
       return () => {
          document.removeEventListener("keydown", handleKeyPress);

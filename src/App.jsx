@@ -1,6 +1,7 @@
 import { useState, createContext } from "react";
 import Board from "./components/Board";
 import Keyboard from "./components/Keyboard";
+import GameOver from "./components/GameOver";
 import defaultBoard from "./board";
 import word from "./words";
 import "./index.css";
@@ -9,7 +10,7 @@ export const AppContext = createContext();
 
 function App() {
    const [board, setBoard] = useState(defaultBoard);
-   const [gameWon, setGameWon] = useState(false);
+   const [gameOver, setGameOver] = useState(false);
    const [letterPosition, setLetterPosition] = useState({
       column: 0,
       row: 0,
@@ -23,7 +24,7 @@ function App() {
             row: letterPosition.row + 1,
          });
 
-         setGameWon(word === board[letterPosition.row].join(""));
+         setGameOver(word === board[letterPosition.row].join(""));
       }
    };
 
@@ -61,12 +62,13 @@ function App() {
             onEnter,
             onBackspace,
             onKeySelect,
+            gameOver,
          }}
       >
-         <h1 className="text-3xl font-bold text-center	my-8">Wordle</h1>
+         <h1 className="text-3xl font-bold text-center my-8">Wordle</h1>
          <Board />
+         <GameOver />
          <Keyboard />
-         {gameWon && <h1>You won!</h1>}
       </AppContext.Provider>
    );
 }
