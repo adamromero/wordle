@@ -2,9 +2,12 @@ import React, { useContext } from "react";
 import { AppContext } from "../App";
 
 const Key = ({ keyLetter, color }) => {
-   const { onEnter, onBackspace, onKeySelect } = useContext(AppContext);
+   const { onEnter, onBackspace, onKeySelect, gameOver } =
+      useContext(AppContext);
 
    const setLetterToBoard = () => {
+      if (gameOver) return;
+
       if (keyLetter === "Enter") {
          onEnter();
       } else if (keyLetter === "Backspace") {
