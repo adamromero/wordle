@@ -16,7 +16,7 @@ const GameOver = () => {
       return (
          <div className="font-bold text-center my-8">
             <h2>Game over</h2>
-            <p>The word was: {word}</p>
+            {/* <p>The word was: {word}</p> */}
          </div>
       );
    } else {
